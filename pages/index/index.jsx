@@ -6,7 +6,19 @@ const Index = () => {
   return (
     <div>
       <Hero />
-      <CarouselContainer>
+      <CarouselContainer sectionName="Comedy">
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+      </CarouselContainer>
+
+      <CarouselContainer sectionName="Anime">
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+      </CarouselContainer>
+
+      <CarouselContainer sectionName="Action">
         <MovieCard />
         <MovieCard />
         <MovieCard />

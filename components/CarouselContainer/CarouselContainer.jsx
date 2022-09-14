@@ -4,7 +4,7 @@ import styles from "./CarouselContainer.module.scss";
 const CarouselContainer = (props) => {
   return (
     <section className={styles.carouselContainer}>
-      <h2 className={styles.sectionTitle}>Comedy</h2>
+      <h2 className={styles.sectionTitle}>{props.sectionName}</h2>
       <div className={styles.carousel}>{props.children}</div>
     </section>
   );
