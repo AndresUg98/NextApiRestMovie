@@ -9,6 +9,7 @@ const nextConfig = {
       "static.filmin.es",
       "www.playstation.com",
       "www.api.themoviedb.org",
+      "image.tmdb.org",
     ],
     remotePatterns: [
       {
