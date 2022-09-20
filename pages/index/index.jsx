@@ -12,6 +12,7 @@ const Index = () => {
 
   const [moviePreview, setMoviePreview] = useState([]);
   const [categoriesPreview, setCategoriesPreview] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   const api = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
@@ -36,13 +37,27 @@ const Index = () => {
       setCategoriesPreview(data.genres);
     };
 
+    const getMovie = async () => {
+      const { data } = await api("movie/" + 551);
+      setMovie(data);
+    };
+
     getTrendingMovies();
     getCategoriesPreview();
+    getMovie();
+    console.log(movie);
   }, []);
-  console.log(categoriesPreview);
+
   return (
     <div>
-      <Hero />
+      {movie.map((movie) => (
+        <Hero
+          key={movie.id}
+          title={movie.original_title}
+          image={movie.backdrop_path}
+        />
+      ))}
+
       <CarouselContainer sectionName="Tendencias">
         {moviePreview.map((movie) => (
           <MovieCard
@@ -75,7 +90,11 @@ const Index = () => {
 
       <CategoriesContainer title="Categories">
         {categoriesPreview.map((categorie) => (
-          <Categories section="Categories" categorie={categorie.name} />
+          <Categories
+            key={categorie.id}
+            section="Categories"
+            categorie={categorie.name}
+          />
         ))}
       </CategoriesContainer>
     </div>
