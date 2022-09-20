@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Hero } from "../../components/Hero/Hero";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { CarouselContainer } from "../../components/CarouselContainer/CarouselContainer";
+import { CategoriesContainer } from "../../components/CategoriesContainer/CategoriesContainer";
 import { Categories } from "../../components/Cateogories/Categories";
+
 import axios from "axios";
 const Index = () => {
   const API_KEY = "f05af5b27b7abc61f3bac2ab406a2412";
@@ -71,11 +73,11 @@ const Index = () => {
         ))}
       </CarouselContainer>
 
-      <Categories>
+      <CategoriesContainer title="Categories">
         {categoriesPreview.map((categorie) => (
-          <p>{categorie.name}</p>
+          <Categories section="Categories" categorie={categorie.name} />
         ))}
-      </Categories>
+      </CategoriesContainer>
     </div>
   );
 };
