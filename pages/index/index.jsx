@@ -38,7 +38,7 @@ const Index = () => {
     };
 
     const getMovie = async () => {
-      const { data } = await api("movie/" + 551);
+      const { data } = await api("movie/" + 550);
       setMovie(data);
     };
 
@@ -46,17 +46,16 @@ const Index = () => {
     getCategoriesPreview();
     getMovie();
     console.log(movie);
+    console.log(movie.original_title);
   }, []);
 
   return (
     <div>
-      {movie.map((movie) => (
-        <Hero
-          key={movie.id}
-          title={movie.original_title}
-          image={movie.backdrop_path}
-        />
-      ))}
+      <Hero
+        title={movie.original_title}
+        image={imageRoute + movie.backdrop_path}
+        text={movie.overview}
+      />
 
       <CarouselContainer sectionName="Tendencias">
         {moviePreview.map((movie) => (
