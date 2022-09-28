@@ -56,7 +56,6 @@ const Index = () => {
         image={imageRoute + movie.backdrop_path}
         text={movie.overview}
       />
-
       <CarouselContainer sectionName="Tendencias">
         {moviePreview.map((movie) => (
           <MovieCard
@@ -66,7 +65,6 @@ const Index = () => {
           />
         ))}
       </CarouselContainer>
-
       <CarouselContainer sectionName="Anime">
         {moviePreview.map((movie) => (
           <MovieCard
@@ -76,7 +74,6 @@ const Index = () => {
           />
         ))}
       </CarouselContainer>
-
       <CarouselContainer sectionName="Action">
         {moviePreview.map((movie) => (
           <MovieCard
@@ -86,7 +83,6 @@ const Index = () => {
           />
         ))}
       </CarouselContainer>
-
       <CategoriesContainer title="Categories">
         {categoriesPreview.map((categorie) => (
           <Categories
