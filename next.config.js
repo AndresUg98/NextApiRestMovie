@@ -10,6 +10,7 @@ const nextConfig = {
       "www.playstation.com",
       "www.api.themoviedb.org",
       "image.tmdb.org",
+      "cuevadelobo.com",
     ],
     remotePatterns: [
       {
