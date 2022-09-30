@@ -14,6 +14,7 @@ const movieItem = () => {
   const imageRoute = "https://image.tmdb.org/t/p/w300/";
 
   const [moviePreview, setMoviePreview] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   const api = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
@@ -32,14 +33,27 @@ const movieItem = () => {
       setMoviePreview(data.results);
     };
 
+    const getMovie = async () => {
+      const { data } = await api("movie/" + 553);
+      setMovie(data);
+    };
+
     getTrendingMovies();
+    getMovie();
+
+    console.log(movie);
   }, []);
 
   return (
     <div>
-      <Banner img="https://cuevadelobo.com/wp-content/uploads/2020/08/Promare-Portada.jpg" />
+      <Banner
+        img={imageRoute + movie.backdrop_path}
+        title={movie.title}
+        text={movie.overview}
+        rating={movie.vote_average}
+      />
       {/* Esta es la pelicula: {movieId} */}
-      <CarouselContainer sectionName="Tendencias">
+      <CarouselContainer sectionName="Relacionadas">
         {moviePreview.map((movie) => (
           <MovieCard
             key={movie.id}

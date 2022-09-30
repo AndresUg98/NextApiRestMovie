@@ -38,7 +38,7 @@ const Index = () => {
     };
 
     const getMovie = async () => {
-      const { data } = await api("movie/" + 550);
+      const { data } = await api("movie/" + 551);
       setMovie(data);
     };
 
@@ -46,7 +46,7 @@ const Index = () => {
     getCategoriesPreview();
     getMovie();
     console.log(movie);
-    console.log(movie.original_title);
+    console.log(movie.genres.map((genre) => genre.name));
   }, []);
 
   return (
