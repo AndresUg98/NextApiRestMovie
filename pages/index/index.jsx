@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Hero } from "../../components/Hero/Hero";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { CarouselContainer } from "../../components/CarouselContainer/CarouselContainer";
@@ -46,7 +47,7 @@ const Index = () => {
     getCategoriesPreview();
     getMovie();
     console.log(movie);
-    console.log(movie.genres.map((genre) => genre.name));
+    // console.log(movie.genres.map((genre) => genre.name));
   }, []);
 
   return (
@@ -58,11 +59,14 @@ const Index = () => {
       />
       <CarouselContainer sectionName="Tendencias">
         {moviePreview.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            title={movie.title}
-            image={imageRoute + movie.poster_path}
-          />
+          <Link href="/movie/[movieId]" as={`/movie/${movie.id}`}>
+            {/* <a>{movie.title}</a> */}
+            <MovieCard
+              key={movie.id}
+              title={movie.title}
+              image={imageRoute + movie.poster_path}
+            />
+          </Link>
         ))}
       </CarouselContainer>
       <CarouselContainer sectionName="Anime">

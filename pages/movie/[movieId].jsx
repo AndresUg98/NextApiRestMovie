@@ -34,7 +34,7 @@ const movieItem = () => {
     };
 
     const getMovie = async () => {
-      const { data } = await api("movie/" + 553);
+      const { data } = await api("movie/" + movieId);
       setMovie(data);
     };
 
@@ -47,7 +47,7 @@ const movieItem = () => {
   return (
     <div>
       <Banner
-        img={imageRoute + movie.backdrop_path}
+        img={imageRoute + movie.poster_path}
         title={movie.title}
         text={movie.overview}
         rating={movie.vote_average}
