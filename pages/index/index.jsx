@@ -39,7 +39,7 @@ const Index = () => {
     };
 
     const getMovie = async () => {
-      const { data } = await api("movie/" + 551);
+      const { data } = await api("movie/" + 642885);
       setMovie(data);
     };
 
@@ -59,20 +59,19 @@ const Index = () => {
       />
       <CarouselContainer sectionName="Tendencias">
         {moviePreview.map((movie) => (
-          <Link href="/movie/[movieId]" as={`/movie/${movie.id}`}>
-            {/* <a>{movie.title}</a> */}
-            <MovieCard
-              key={movie.id}
-              title={movie.title}
-              image={imageRoute + movie.poster_path}
-            />
-          </Link>
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            image={imageRoute + movie.poster_path}
+          />
         ))}
       </CarouselContainer>
       <CarouselContainer sectionName="Anime">
         {moviePreview.map((movie) => (
           <MovieCard
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             image={imageRoute + movie.poster_path}
           />
@@ -82,6 +81,7 @@ const Index = () => {
         {moviePreview.map((movie) => (
           <MovieCard
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             image={imageRoute + movie.poster_path}
           />

@@ -57,6 +57,7 @@ const movieItem = () => {
         {moviePreview.map((movie) => (
           <MovieCard
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             image={imageRoute + movie.poster_path}
           />
