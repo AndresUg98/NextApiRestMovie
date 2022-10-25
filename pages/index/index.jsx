@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { Hero } from "../../components/Hero/Hero";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { CarouselContainer } from "../../components/CarouselContainer/CarouselContainer";
@@ -64,6 +63,7 @@ const Index = () => {
             id={movie.id}
             title={movie.title}
             image={imageRoute + movie.poster_path}
+            className={"card"}
           />
         ))}
       </CarouselContainer>
@@ -74,6 +74,7 @@ const Index = () => {
             id={movie.id}
             title={movie.title}
             image={imageRoute + movie.poster_path}
+            className={"card"}
           />
         ))}
       </CarouselContainer>
@@ -84,6 +85,7 @@ const Index = () => {
             id={movie.id}
             title={movie.title}
             image={imageRoute + movie.poster_path}
+            className={"card"}
           />
         ))}
       </CarouselContainer>
@@ -93,6 +95,7 @@ const Index = () => {
             key={categorie.id}
             section="Categories"
             categorie={categorie.name}
+            className={"card"}
           />
         ))}
       </CategoriesContainer>

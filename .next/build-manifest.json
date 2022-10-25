@@ -25,15 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/index": [
+    "/categories/[categorieid]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/index/index.js"
-    ],
-    "/movie/[movieId]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/movie/[movieId].js"
+      "static/chunks/pages/categories/[categorieid].js"
     ]
   },
   "ampFirstPages": []

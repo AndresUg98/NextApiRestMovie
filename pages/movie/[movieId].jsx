@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Back } from "../../components/BackButton/Back";
 import { useRouter } from "next/router";
 import { Banner } from "../../components/Banner/Banner";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
@@ -46,6 +47,7 @@ const movieItem = () => {
 
   return (
     <div>
+      <Back className={"imageZindex"} />
       <Banner
         img={imageRoute + movie.poster_path}
         title={movie.title}
