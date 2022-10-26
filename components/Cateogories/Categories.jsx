@@ -1,11 +1,14 @@
 import * as React from "react";
+import Link from "next/link";
 import styles from "./Categories.module.scss";
 
-const Categories = ({ section, categorie }) => {
+const Categories = ({ id, categorie }) => {
   return (
-    <div className={styles.categories} id="categoriesPreview">
-      <p>{categorie}</p>
-    </div>
+    <Link href="/categories/[categorieid]" as={`/categories/${id}`}>
+      <div className={styles.categories} id="categoriesPreview">
+        <p>{categorie}</p>
+      </div>
+    </Link>
   );
 };
 

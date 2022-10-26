@@ -15,8 +15,6 @@ function Categorie() {
 
   const [moviePreview, setMoviePreview] = useState([]);
 
-  const [movie, setMovie] = useState([]);
-
   const api = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
     headers: {
@@ -28,22 +26,19 @@ function Categorie() {
   });
 
   useEffect(() => {
-    const getTrendingMovies = async () => {
-      const { data } = await api("trending/movie/day");
+    const getCategoryMovies = async () => {
+      const { data } = await api("discover/movie/", {
+        params: {
+          with_genres: categorieid,
+        },
+      });
 
       setMoviePreview(data.results);
     };
 
-    const getMovie = async () => {
-      const { data } = await api("movie/" + 642885);
-      setMovie(data);
-    };
+    getCategoryMovies();
 
-    getTrendingMovies();
-
-    getMovie();
-    console.log(movie);
-    // console.log(movie.genres.map((genre) => genre.name));
+    //console.log(movie.genres.map((genre) => genre.name));
   }, []);
   return (
     <div>
@@ -53,16 +48,6 @@ function Categorie() {
       </div>
 
       <section className={styles.moviesResult}>
-        {/* <div className={styles.card}>
-          <img
-            src="https://es.web.img3.acsta.net/pictures/21/03/05/14/08/2811747.jpg"
-            alt=""
-          />
-          <div className={styles.cardTitle}>
-            <p>Digimon last evolution</p>
-          </div>
-        </div> */}
-
         {moviePreview.map((movie) => (
           <MovieCard
             key={movie.id}

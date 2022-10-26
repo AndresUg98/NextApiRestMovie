@@ -62,6 +62,7 @@ const movieItem = () => {
             id={movie.id}
             title={movie.title}
             image={imageRoute + movie.poster_path}
+            className={"card"}
           />
         ))}
       </CarouselContainer>

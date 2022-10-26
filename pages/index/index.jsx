@@ -93,9 +93,9 @@ const Index = () => {
         {categoriesPreview.map((categorie) => (
           <Categories
             key={categorie.id}
+            id={categorie.id}
             section="Categories"
             categorie={categorie.name}
-            className={"card"}
           />
         ))}
       </CategoriesContainer>
