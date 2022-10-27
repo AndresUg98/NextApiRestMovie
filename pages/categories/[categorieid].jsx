@@ -14,6 +14,7 @@ function Categorie() {
   const imageRoute = "https://image.tmdb.org/t/p/w300/";
 
   const [moviePreview, setMoviePreview] = useState([]);
+  const [categoriesName, setCategoriesName] = useState([]);
 
   const api = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
@@ -36,15 +37,25 @@ function Categorie() {
       setMoviePreview(data.results);
     };
 
-    getCategoryMovies();
+    const getCategoriesName = async () => {
+      const { data } = await api("genre/movie/list");
 
-    //console.log(movie.genres.map((genre) => genre.name));
+      for (let i = 0; i < data.genres.length; i++) {
+        if (data.genres[i].id == categorieid) {
+          return setCategoriesName(data.genres[i].name);
+        }
+      }
+    };
+
+    getCategoryMovies();
+    getCategoriesName();
   }, []);
+
   return (
     <div>
       <div className={styles.CategorieContainer}>
         <Back className={"relative"} />
-        <h1 className={styles.categoryTitle}>Anime</h1>
+        <h1 className={styles.categoryTitle}>{categoriesName}</h1>
       </div>
 
       <section className={styles.moviesResult}>

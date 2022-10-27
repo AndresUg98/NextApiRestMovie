@@ -3,5 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/index": "pages/index/index.js",
-  "/categories/[categorieid]": "pages/categories/[categorieid].js"
+  "/categories/[categorieid]": "pages/categories/[categorieid].js",
+  "/movie/[movieId]": "pages/movie/[movieId].js"
 }
