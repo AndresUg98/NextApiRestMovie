@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { CarouselContainer } from "../../components/CarouselContainer/CarouselContainer";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
-import { Back } from "../../components/BackButton/Back";
+import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
 import styles from "./Categorie.module.scss";
+import back from "../../components/Assets/Icons/back.svg";
 import axios from "axios";
 
 function Categorie() {
@@ -54,7 +55,7 @@ function Categorie() {
   return (
     <div>
       <div className={styles.CategorieContainer}>
-        <Back className={"relative"} />
+        <Hrefbutton className={"relative"} icon={back} url={"../index"} />
         <h1 className={styles.categoryTitle}>{categoriesName}</h1>
       </div>
 

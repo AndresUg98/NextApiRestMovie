@@ -1,15 +1,15 @@
 // @flow
 import * as React from "react";
 import styles from "./search.module.scss";
+import { Input } from "../../components/Input/Input";
+import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
+import back from "../../components/Assets/Icons/back.svg";
 export const search = () => {
   return (
     <div>
       <section className={styles.searchBarContainer}>
-        <img src="./assets/back.svg" alt="" />
-
-        <div className={styles.searchbar}>
-          <input type="text" placeholder="Search" />
-        </div>
+        <Hrefbutton className={"relative"} icon={back} url={"../index"} />
+        <Input type="search" placeholder="Search" />
       </section>
 
       <section className={styles.moviesResult}>

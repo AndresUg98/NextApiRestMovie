@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Back } from "../../components/BackButton/Back";
+import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
 import { useRouter } from "next/router";
 import { Banner } from "../../components/Banner/Banner";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { CarouselContainer } from "../../components/CarouselContainer/CarouselContainer";
+import back from "../../components/Assets/Icons/back.svg";
+import search from "../../components/Assets/Icons/search.svg";
 
 const movieItem = () => {
   const {
@@ -47,7 +49,12 @@ const movieItem = () => {
 
   return (
     <div>
-      <Back className={"imageZindex"} />
+      <Hrefbutton className={"imageZindex"} icon={back} url={"../index"} />
+      <Hrefbutton
+        className={"imageZindexSearch"}
+        icon={search}
+        url={"../search/"}
+      />
       <Banner
         img={imageRoute + movie.poster_path}
         title={movie.title}
