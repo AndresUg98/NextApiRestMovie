@@ -5,11 +5,18 @@ import { Input } from "../../components/Input/Input";
 import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
 import back from "../../components/Assets/Icons/back.svg";
 export const search = () => {
+  // const onSearchValueChange = (event) => {
+  //   console.log(event);
+  // };
   return (
     <div>
       <section className={styles.searchBarContainer}>
         <Hrefbutton className={"relative"} icon={back} url={"../index"} />
-        <Input type="search" placeholder="Search" />
+        <Input
+          type="search"
+          placeholder="Search"
+          // onChange={onSearchValueChange}
+        />
       </section>
 
       <section className={styles.moviesResult}>

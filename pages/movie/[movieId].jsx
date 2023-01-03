@@ -6,7 +6,6 @@ import { Banner } from "../../components/Banner/Banner";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { CarouselContainer } from "../../components/CarouselContainer/CarouselContainer";
 import back from "../../components/Assets/Icons/back.svg";
-import search from "../../components/Assets/Icons/search.svg";
 
 const movieItem = () => {
   const {
@@ -50,11 +49,7 @@ const movieItem = () => {
   return (
     <div>
       <Hrefbutton className={"imageZindex"} icon={back} url={"../index"} />
-      <Hrefbutton
-        className={"imageZindexSearch"}
-        icon={search}
-        url={"../search/"}
-      />
+
       <Banner
         img={imageRoute + movie.poster_path}
         title={movie.title}

@@ -4,6 +4,8 @@ import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { CarouselContainer } from "../../components/CarouselContainer/CarouselContainer";
 import { CategoriesContainer } from "../../components/CategoriesContainer/CategoriesContainer";
 import { Categories } from "../../components/Cateogories/Categories";
+import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
+import search from "../../components/Assets/Icons/search.svg";
 
 import axios from "axios";
 const Index = () => {
@@ -51,6 +53,11 @@ const Index = () => {
 
   return (
     <div>
+      <Hrefbutton
+        className={"imageZindexSearch"}
+        icon={search}
+        url={"../search/"}
+      />
       <Hero
         title={movie.original_title}
         image={imageRoute + movie.backdrop_path}
