@@ -1,8 +1,10 @@
-import React from "react";
+import react from "react";
+
 import styles from "./Input.module.scss";
-const Input = ({ type, placeholder, value }) => {
+const Input = ({ type, placeholder, searchMovie, setsearchMovie }) => {
   const onSearchValueChange = (event) => {
     console.log(event.target.value);
+    setsearchMovie(event.target.value);
   };
   return (
     <div>
@@ -10,6 +12,7 @@ const Input = ({ type, placeholder, value }) => {
         <input
           type={type}
           placeholder={placeholder}
+          value={searchMovie}
           onChange={onSearchValueChange}
         />
       </div>

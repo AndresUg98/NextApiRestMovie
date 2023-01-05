@@ -1,13 +1,53 @@
 // @flow
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import stylesCard from "../categories/Categorie.module.scss";
 import styles from "./search.module.scss";
 import { Input } from "../../components/Input/Input";
 import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
 import back from "../../components/Assets/Icons/back.svg";
 export const search = () => {
-  // const onSearchValueChange = (event) => {
-  //   console.log(event);
-  // };
+  const [searchMovie, setsearchMovie] = React.useState("");
+
+  const API_KEY = "f05af5b27b7abc61f3bac2ab406a2412";
+  const imageRoute = "https://image.tmdb.org/t/p/w300/";
+
+  const [moviePreview, setMoviePreview] = useState([]);
+
+  const api = axios.create({
+    baseURL: "https://api.themoviedb.org/3/",
+    headers: {
+      "Content-type": "application/json;charset=utf-8",
+    },
+    params: {
+      api_key: API_KEY,
+    },
+  });
+
+  let searchedMovies = [];
+  if (!searchedMovies.length >= 1) {
+    searchedMovies = moviePreview;
+  } else {
+    searchedMovies = moviePreview.map((movie) => {
+      return console.log(movie.original_title);
+    });
+  }
+  //console.log(searchedMovies);
+  useEffect(() => {
+    const getMovies = async () => {
+      const { data } = await api("search/movie", {
+        params: {
+          query: "pok",
+        },
+      });
+
+      setMoviePreview(data.results);
+    };
+
+    getMovies();
+  }, []);
+
   return (
     <div>
       <section className={styles.searchBarContainer}>
@@ -15,70 +55,21 @@ export const search = () => {
         <Input
           type="search"
           placeholder="Search"
-          // onChange={onSearchValueChange}
+          searchMovie={searchMovie}
+          setsearchMovie={setsearchMovie}
         />
       </section>
 
-      <section className={styles.moviesResult}>
-        <div className={styles.card}>
-          <img
-            src="https://es.web.img3.acsta.net/pictures/21/03/05/14/08/2811747.jpg"
-            alt=""
+      <section className={stylesCard.moviesResult}>
+        {searchedMovies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            image={imageRoute + movie.poster_path}
+            className={"cardCategories"}
           />
-          <div className={styles.cardTitle}>
-            <p>Digimon last evolution</p>
-          </div>
-        </div>
-
-        <div className={styles.card}>
-          <img
-            src="https://as01.epimg.net/meristation/imagenes/2022/06/06/noticias/1654498397_532691_1654498566_noticia_normal.jpg"
-            alt=""
-          />
-          <div className={styles.cardTitle}>
-            <p>DB:Super Hero</p>
-          </div>
-        </div>
-
-        <div className={styles.card}>
-          <img
-            src="https://depor.com/resizer/2z6hz-20RV7Q9jIV1mHBxzbFURY=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/RHXPLHQTQJCRRMRJTP3AK4IWOU.jpg"
-            alt=""
-          />
-          <div className={styles.cardTitle}>
-            <p>Weathering with you</p>
-          </div>
-        </div>
-
-        <div className={styles.card}>
-          <img
-            src="https://es.web.img3.acsta.net/pictures/21/03/05/14/08/2811747.jpg"
-            alt=""
-          />
-          <div className={styles.cardTitle}>
-            <p>Digimon last evolution</p>
-          </div>
-        </div>
-
-        <div className={styles.card}>
-          <img
-            src="https://as01.epimg.net/meristation/imagenes/2022/06/06/noticias/1654498397_532691_1654498566_noticia_normal.jpg"
-            alt=""
-          />
-          <div className={styles.cardTitle}>
-            <p>DB:Super Hero</p>
-          </div>
-        </div>
-
-        <div className={styles.card}>
-          <img
-            src="https://depor.com/resizer/2z6hz-20RV7Q9jIV1mHBxzbFURY=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/RHXPLHQTQJCRRMRJTP3AK4IWOU.jpg"
-            alt=""
-          />
-          <div className={styles.cardTitle}>
-            <p>Weathering with you</p>
-          </div>
-        </div>
+        ))}
       </section>
     </div>
   );
