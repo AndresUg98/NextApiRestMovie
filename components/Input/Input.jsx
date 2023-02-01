@@ -1,11 +1,23 @@
-import react from "react";
+import react, { useState } from "react";
 
 import styles from "./Input.module.scss";
-const Input = ({ type, placeholder, searchMovie, setsearchMovie }) => {
+const Input = ({
+  type,
+  placeholder,
+  searchMovie,
+  setsearchMovie,
+  setUpdated,
+}) => {
   const onSearchValueChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setsearchMovie(event.target.value);
   };
+
+  const handleClick = () => {
+    // console.log(event);
+    setUpdated(searchMovie);
+  };
+
   return (
     <div>
       <div className={styles.searchBar}>
@@ -15,6 +27,7 @@ const Input = ({ type, placeholder, searchMovie, setsearchMovie }) => {
           value={searchMovie}
           onChange={onSearchValueChange}
         />
+        <button onClick={handleClick}></button>
       </div>
     </div>
   );

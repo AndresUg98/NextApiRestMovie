@@ -8,7 +8,8 @@ import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import back from "../../components/Assets/Icons/back.svg";
 export const search = () => {
-  const [searchMovie, setsearchMovie] = React.useState("");
+  const [searchMovie, setsearchMovie] = React.useState("pokemon");
+  const [updated, setUpdated] = useState(searchMovie);
 
   const API_KEY = "f05af5b27b7abc61f3bac2ab406a2412";
   const imageRoute = "https://image.tmdb.org/t/p/w300/";
@@ -25,20 +26,12 @@ export const search = () => {
     },
   });
 
-  let searchedMovies = [];
-  if (!searchedMovies.length >= 1) {
-    searchedMovies = moviePreview;
-  } else {
-    searchedMovies = moviePreview.map((movie) => {
-      return console.log(movie.original_title);
-    });
-  }
   //console.log(searchedMovies);
   useEffect(() => {
     const getMovies = async () => {
       const { data } = await api("search/movie", {
         params: {
-          query: "pok",
+          query: updated,
         },
       });
 
@@ -46,7 +39,7 @@ export const search = () => {
     };
 
     getMovies();
-  }, []);
+  }, [updated]);
 
   return (
     <div>
@@ -57,11 +50,12 @@ export const search = () => {
           placeholder="Search"
           searchMovie={searchMovie}
           setsearchMovie={setsearchMovie}
+          setUpdated={setUpdated}
         />
       </section>
 
       <section className={stylesCard.moviesResult}>
-        {searchedMovies.map((movie) => (
+        {moviePreview.map((movie) => (
           <MovieCard
             key={movie.id}
             id={movie.id}
