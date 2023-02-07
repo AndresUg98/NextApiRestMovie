@@ -8,7 +8,7 @@ import { Hrefbutton } from "../../components/BackButton/Hrefbutton";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import back from "../../components/Assets/Icons/back.svg";
 export const search = () => {
-  const [searchMovie, setsearchMovie] = React.useState("pokemon");
+  const [searchMovie, setsearchMovie] = React.useState("");
   const [updated, setUpdated] = useState(searchMovie);
 
   const API_KEY = "f05af5b27b7abc61f3bac2ab406a2412";

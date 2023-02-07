@@ -27,8 +27,10 @@ const Input = ({
           value={searchMovie}
           onChange={onSearchValueChange}
         />
-        <button onClick={handleClick}></button>
       </div>
+      <button onClick={handleClick} className={styles.searchButton}>
+        Buscar
+      </button>
     </div>
   );
 };

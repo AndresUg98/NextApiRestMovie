@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Exo+2&display=swap");
 .searchBar {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .searchBar input {
   width: 100%;
@@ -10,10 +12,27 @@
   border: 0;
   border-radius: 18px;
   opacity: 0.8;
+
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 .searchBar input::placeholder {
   font-family: "Exo 2", sans-serif;
   font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.searchButton {
+  width: 25%;
+  opacity: 0.8;
+  margin-top: 1.5rem;
+  margin-left: 75%;
+  border-radius: 10px;
+  position: relative;
+  border: none;
+  font-family: "Exo 2", sans-serif;
+  font-size: 0.9rem;
   font-weight: 400;
 }
