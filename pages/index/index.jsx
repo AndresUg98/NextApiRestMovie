@@ -57,6 +57,7 @@ const Index = () => {
         className={"imageZindexSearch"}
         icon={search}
         url={"../search/"}
+        value={"search"}
       />
       <Hero
         title={movie.original_title}

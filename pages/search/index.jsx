@@ -44,7 +44,12 @@ export const search = () => {
   return (
     <div>
       <section className={styles.searchBarContainer}>
-        <Hrefbutton className={"relative"} icon={back} url={"../index"} />
+        <Hrefbutton
+          className={"relative"}
+          icon={back}
+          url={"../index"}
+          value={"back"}
+        />
         <Input
           type="search"
           placeholder="Search"
