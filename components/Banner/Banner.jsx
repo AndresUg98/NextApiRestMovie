@@ -3,7 +3,11 @@ import Image from "next/image";
 import styles from "./banner.module.scss";
 import score from "../Assets/Icons/score.svg";
 
-const Banner = ({ img, title, text, rating }) => {
+const Banner = ({ img, title, text, rating, categories}) => {
+
+
+  
+
   return (
     <section>
       <div className={styles.movieImg}>
@@ -12,8 +16,10 @@ const Banner = ({ img, title, text, rating }) => {
       <div className={styles.movieInfo}>
         <h3 className={styles.movieTitle}>{title}</h3>
         <div className={styles.genere}>
-          <p>Animation</p>
-          <p>Action</p>
+          {
+            categories?.map((categorie)=>(<p>{categorie.name}</p> ))
+          }
+
         </div>
         <div className={styles.rate}>
           <Image src={score} />

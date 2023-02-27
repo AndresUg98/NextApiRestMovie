@@ -17,10 +17,8 @@ const Hrefbutton = ({ className, icon, url, value }) => {
   };
 
   return (
-    <button type="button" onClick={handleClick}>
-      <div className={styles[className]}>
+    <button className={styles[className]} type="button" onClick={handleClick}>
         <Image src={icon} layout="fill" />
-      </div>
     </button>
   );
 };

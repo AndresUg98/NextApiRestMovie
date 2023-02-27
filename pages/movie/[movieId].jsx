@@ -46,6 +46,10 @@ const movieItem = () => {
     console.log(movie);
   }, []);
 
+  
+
+
+  
   return (
     <div>
       <Hrefbutton className={"imageZindex"} icon={back} url={"../index"} />
@@ -55,6 +59,7 @@ const movieItem = () => {
         title={movie.title}
         text={movie.overview}
         rating={movie.vote_average}
+        categories={movie.genres}
       />
       {/* Esta es la pelicula: {movieId} */}
       <CarouselContainer sectionName="Relacionadas">
