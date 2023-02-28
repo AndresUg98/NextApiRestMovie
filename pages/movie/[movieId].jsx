@@ -13,7 +13,7 @@ const movieItem = () => {
   } = useRouter();
 
   const API_KEY = "f05af5b27b7abc61f3bac2ab406a2412";
-  const imageRoute = "https://image.tmdb.org/t/p/w300/";
+  const imageRoute = "https://image.tmdb.org/t/p/w500/";
 
   const [moviePreview, setMoviePreview] = useState([]);
   const [movie, setMovie] = useState([]);
@@ -30,7 +30,7 @@ const movieItem = () => {
 
   useEffect(() => {
     const getTrendingMovies = async () => {
-      const { data } = await api("trending/movie/day");
+      const { data } = await api(`/movie/${movieId}/similar`);
 
       setMoviePreview(data.results);
     };
@@ -46,10 +46,6 @@ const movieItem = () => {
     console.log(movie);
   }, []);
 
-  
-
-
-  
   return (
     <div>
       <Hrefbutton className={"imageZindex"} icon={back} url={"../index"} />
