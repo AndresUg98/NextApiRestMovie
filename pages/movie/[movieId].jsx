@@ -30,7 +30,7 @@ const movieItem = () => {
 
   useEffect(() => {
     const getTrendingMovies = async () => {
-      const { data } = await api(`/movie/${movieId}/similar`);
+      const { data } = await api(`/movie/${movieId}/recommendations`);
 
       setMoviePreview(data.results);
     };

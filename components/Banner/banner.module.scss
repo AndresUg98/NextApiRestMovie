@@ -26,13 +26,15 @@
   width: 70%;
   margin: 0.87rem 0%;
   font-family: "Concert One", cursive;
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   font-weight: 400;
 }
 
 .genere {
   min-width: 50%;
+  max-height: 25%;
   display: flex;
+  flex-wrap: wrap;
   opacity: 0.5;
   font-family: "Exo 2", sans-serif;
   font-size: 0.88rem;
@@ -41,7 +43,7 @@
 }
 
 .genere p {
-  margin: 0% 1rem;
+  margin: 0.2rem 0.7rem;
 }
 
 .genere p:nth-child(1) {
